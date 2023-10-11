@@ -7,23 +7,25 @@ public class ElektroKauf {
     public int maxUSB;
     public int keyboardAmmount = 0;
     public int usbAmmount = 0;
-    ElektroKauf(int maxUSBS,int maxKeyboards_){
+    public ElektroKauf(int maxUSBS,int maxKeyboards_){
         keyboards = new int[maxKeyboards_];
         usb = new int[maxUSBS];
         keyboardAmmount = 0;
         usbAmmount = 0;
+        maxUSB = maxUSBS;
+        maxKeyboards = maxKeyboards_;
     }
     public void addKeyboards(int price){
-        if(keyboardAmmount < maxKeyboards-1)
+        if(keyboardAmmount < maxKeyboards)
         { keyboards[keyboardAmmount] = price;
         keyboardAmmount++;}
     else{
-        throw new RuntimeException("Not enough space left");
+        //throw new RuntimeException("Not enough space left");
         }
     }
 
         public void addUSB(int price) {
-            if (usbAmmount < maxUSB - 1) {
+            if (usbAmmount < maxUSB) {
                 usb[usbAmmount] = price;
                 usbAmmount++;
             } else {
@@ -78,9 +80,9 @@ public class ElektroKauf {
         choices[1] = -1;
         int[] usbsSort = sortedUSB();
         int[] keybdsSort = sortedKeyboards();
-        for(int i = keyboardAmmount-1;i >= 0;i --){
+        for(int i = 0;i < keyboardAmmount-1;i ++){
             if(!(keyboards[i] > budget))
-                for(int j = usbAmmount-1;i>=0;i--){
+                for(int j = 0;j < usbAmmount-1;i++){
                     if(usb[j]+keyboards[i]<=budget){
                         choices[0] = keyboards[i];
                         choices[1] = usb[j];
