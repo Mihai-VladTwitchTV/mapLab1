@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ElektroKauf {
     public int[] keyboards;
     public int[] usb;
@@ -56,5 +58,37 @@ public class ElektroKauf {
                 max = keyboards[i];
         }
         return max;
+    }
+
+    public int[] sortedKeyboards(){
+        int[] newArray = keyboards;
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+    public int[] sortedUSB(){
+        int[] newArray = usb;
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+    public int[] budgetBuy(int budget){
+        int[] choices = new int[2];
+        choices[0] = -1;
+        choices[1] = -1;
+        int[] usbsSort = sortedUSB();
+        int[] keybdsSort = sortedKeyboards();
+        for(int i = keyboardAmmount-1;i >= 0;i --){
+            if(!(keyboards[i] > budget))
+                for(int j = usbAmmount-1;i>=0;i--){
+                    if(usb[j]+keyboards[i]<=budget){
+                        choices[0] = keyboards[i];
+                        choices[1] = usb[j];
+                    }
+                }
+
+        }
+        return choices;
+
     }
 }
