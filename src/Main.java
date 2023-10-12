@@ -23,7 +23,8 @@ public class Main {
         magazin1.addUSB(5);
         magazin1.addUSB(7);
         magazin1.addUSB(9);
-        System.out.println(magazin1.expensiveByBudget(9));
+        System.out.println(magazin1.budgetBuy(20)[0]);
+        System.out.println(magazin1.budgetBuy(20)[1]);
 
         }
 

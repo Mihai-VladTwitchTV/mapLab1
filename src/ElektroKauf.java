@@ -80,9 +80,9 @@ public class ElektroKauf {
         choices[1] = -1;
         int[] usbsSort = sortedUSB();
         int[] keybdsSort = sortedKeyboards();
-        for(int i = 0;i < keyboardAmmount-1;i ++){
+        for(int i = 0;i <= keyboardAmmount-1;i++){
             if(!(keyboards[i] > budget))
-                for(int j = 0;j < usbAmmount-1;i++){
+                for(int j = 0;j <= usbAmmount-1;j++){
                     if(usb[j]+keyboards[i]<=budget){
                         choices[0] = keyboards[i];
                         choices[1] = usb[j];
