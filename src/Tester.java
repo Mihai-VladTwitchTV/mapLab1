@@ -7,4 +7,5 @@ public class Tester {
         ElektroKaufTests elekf = new ElektroKaufTests();
         elekf.runTests();
     }
+
 }
