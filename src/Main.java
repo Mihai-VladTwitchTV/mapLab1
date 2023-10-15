@@ -11,20 +11,21 @@ public class Main {
         BigNumber nr1 = new BigNumber(10,nr1Array);
         BigNumber nr2 = new BigNumber(10,nr2Array);
         for(int i = 0;i < 10;i++)
-        System.out.print(nr2.div(2).digitArray[i]);*/
+        System.out.print(nr2.div(2).digitArray[i]);
         ElektroKauf magazin1 = new ElektroKauf(5,5);
         magazin1.addKeyboards(2);
         magazin1.addKeyboards(4);
         magazin1.addKeyboards(6);
-        magazin1.addKeyboards(8);
         magazin1.addKeyboards(10);
+        magazin1.addKeyboards(8);
         magazin1.addUSB(1);
         magazin1.addUSB(3);
         magazin1.addUSB(5);
-        magazin1.addUSB(7);
         magazin1.addUSB(9);
+        magazin1.addUSB(7);
         System.out.println(magazin1.budgetBuy(20)[0]);
-        System.out.println(magazin1.budgetBuy(20)[1]);
+        System.out.println(magazin1.budgetBuy(20)[1]);*/
+        System.out.println("Please run the 'main' from the 'Tester' class!");
 
         }
 

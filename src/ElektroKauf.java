@@ -16,22 +16,22 @@ public class ElektroKauf {
         maxKeyboards = maxKeyboards_;
     }
     public void addKeyboards(int price){
-        if(keyboardAmmount < maxKeyboards)
-        { keyboards[keyboardAmmount] = price;
+        if(keyboardAmmount < maxKeyboards){
+        keyboards[keyboardAmmount] = price;
         keyboardAmmount++;}
     else{
-        //throw new RuntimeException("Not enough space left");
+        throw new RuntimeException("Not enough space left");
         }
     }
 
-        public void addUSB(int price) {
-            if (usbAmmount < maxUSB) {
-                usb[usbAmmount] = price;
-                usbAmmount++;
-            } else {
-                throw new RuntimeException("Not enough space left");
-            }
+    public void addUSB(int price) {
+        if(usbAmmount < maxUSB) {
+            usb[usbAmmount] = price;
+            usbAmmount++;}
+    else{
+         throw new RuntimeException("Not enough space left");
         }
+    }
 
     public int cheapestKeyboard(){
         int min = 44444444;
@@ -46,9 +46,10 @@ public class ElektroKauf {
         int max = -1;
         for(int i = 0;i<usbAmmount;i++) {
             if (max < usb[i])
-                max = usb[i];
-            if(max < keyboards[i])
-                max = keyboards[i];
+                max = usb[i];}
+        for(int j = 0;j<keyboardAmmount;j++) {
+            if(max < keyboards[j])
+                max = keyboards[j];
         }
         return max;
     }
@@ -81,11 +82,11 @@ public class ElektroKauf {
         int[] usbsSort = sortedUSB();
         int[] keybdsSort = sortedKeyboards();
         for(int i = 0;i <= keyboardAmmount-1;i++){
-            if(!(keyboards[i] > budget))
+            if(!(keybdsSort[i] > budget))
                 for(int j = 0;j <= usbAmmount-1;j++){
-                    if(usb[j]+keyboards[i]<=budget){
-                        choices[0] = keyboards[i];
-                        choices[1] = usb[j];
+                    if(usbsSort[j]+keybdsSort[i]<=budget){
+                        choices[0] = keybdsSort[i];
+                        choices[1] = usbsSort[j];
                     }
                 }
 

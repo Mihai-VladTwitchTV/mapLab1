@@ -1,7 +1,10 @@
 public class Tester {
     public static void main(String[] args){
         OperationsTests op = new OperationsTests();
-        op.opTest();
-        System.out.println("Operations test passed");
+        op.runTest();
+        BigNumberTests bgnr = new BigNumberTests();
+        bgnr.runTests();
+        ElektroKaufTests elekf = new ElektroKaufTests();
+        elekf.runTests();
     }
 }
