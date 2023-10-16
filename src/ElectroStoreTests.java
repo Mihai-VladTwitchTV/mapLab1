@@ -1,5 +1,5 @@
-public class ElektroKaufTests {
-    ElektroKauf kauf = new ElektroKauf(5,5);
+public class ElectroStoreTests {
+    ElectroStore kauf = new ElectroStore(5,5);
     int budget_ = 20;
 
     public void runTests(){

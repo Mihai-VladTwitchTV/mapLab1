@@ -1,13 +1,13 @@
 import java.util.Arrays;
 
-public class ElektroKauf {
+public class ElectroStore {
     public int[] keyboards;
     public int[] usb;
     public int maxKeyboards;
     public int maxUSB;
     public int keyboardAmmount = 0;
     public int usbAmmount = 0;
-    public ElektroKauf(int maxUSBS,int maxKeyboards_){
+    public ElectroStore(int maxUSBS,int maxKeyboards_){
         keyboards = new int[maxKeyboards_];
         usb = new int[maxUSBS];
         keyboardAmmount = 0;

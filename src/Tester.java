@@ -4,7 +4,7 @@ public class Tester {
         op.runTest();
         BigNumberTests bgnr = new BigNumberTests();
         bgnr.runTests();
-        ElektroKaufTests elekf = new ElektroKaufTests();
+        ElectroStoreTests elekf = new ElectroStoreTests();
         elekf.runTests();
     }
 
