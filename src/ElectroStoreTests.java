@@ -1,9 +1,24 @@
+import org.junit.Test;
+
 public class ElectroStoreTests {
     ElectroStore kauf = new ElectroStore(5,5);
     int budget_ = 20;
 
-    public void runTests(){
+    @Test
+    public void catchExceptions(){
+        ElectroStore tester1 = new ElectroStore(1,1);
+        try{
+            ElectroStore tester = new ElectroStore(-3,-3);
+            tester1.addKeyboards(-1);
+            tester1.addUSB(-1);
+    }
+        catch (RuntimeException e){}
+    }
 
+
+
+    public void runTests(){
+        catchExceptions();
         kauf.addKeyboards(2);
         kauf.addKeyboards(4);
         kauf.addKeyboards(6);

@@ -8,6 +8,8 @@ public class ElectroStore {
     public int keyboardAmmount = 0;
     public int usbAmmount = 0;
     public ElectroStore(int maxUSBS,int maxKeyboards_){
+        if(maxUSBS < 1 || maxKeyboards_ < 1)
+            throw new RuntimeException("Cannot have a max smaller than 1");
         keyboards = new int[maxKeyboards_];
         usb = new int[maxUSBS];
         keyboardAmmount = 0;
@@ -16,6 +18,8 @@ public class ElectroStore {
         maxKeyboards = maxKeyboards_;
     }
     public void addKeyboards(int price){
+        if(price < 0)
+            throw new RuntimeException("Cannot add a negative price");
         if(keyboardAmmount < maxKeyboards){
         keyboards[keyboardAmmount] = price;
         keyboardAmmount++;}
@@ -25,6 +29,8 @@ public class ElectroStore {
     }
 
     public void addUSB(int price) {
+        if(price < 0)
+            throw new RuntimeException("Cannot add a negative price");
         if(usbAmmount < maxUSB) {
             usb[usbAmmount] = price;
             usbAmmount++;}
@@ -39,6 +45,8 @@ public class ElectroStore {
         if(keyboards[i] < min)
             min = keyboards[i];
         }
+    if(min ==44444444 )
+        return -1;
     return min;
     }
 

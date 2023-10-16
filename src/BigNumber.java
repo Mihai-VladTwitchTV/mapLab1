@@ -3,6 +3,10 @@ public class BigNumber {
     public int[] digitArray;
 
     BigNumber(int size_, int[] array){
+        for(int i:array){
+            if (i < 0)
+                throw new RuntimeException("Cannot have a negative number in the digit array");
+        }
         size = size_;
         digitArray = new int[size];
         digitArray = array;
@@ -59,7 +63,7 @@ public class BigNumber {
 
     public BigNumber div(int divisor) {
         if (divisor == 0) {
-            throw new ArithmeticException("Division by zero");
+            throw new RuntimeException("Division by zero");
         }
 
         int newSize = size;  // The size of the resulting BigNumber
