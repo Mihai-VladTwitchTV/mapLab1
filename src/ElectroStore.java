@@ -17,6 +17,22 @@ public class ElectroStore {
         maxUSB = maxUSBS;
         maxKeyboards = maxKeyboards_;
     }
+
+    public int[] sortArray(int[] array) {
+        // Bubble sort implementation
+        int n = array.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    // swap array[j] and array[j+1]
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        return array;
+    }
     public void addKeyboards(int price){
         if(price < 0)
             throw new RuntimeException("Cannot add a negative price");
@@ -40,13 +56,12 @@ public class ElectroStore {
     }
 
     public int cheapestKeyboard(){
-        int min = 44444444;
+        int min = Integer.MAX_VALUE;
     for(int i = 0;i < keyboardAmmount-1;i++){
         if(keyboards[i] < min)
             min = keyboards[i];
         }
-    if(min ==44444444 )
-        return -1;
+
     return min;
     }
 
@@ -72,14 +87,12 @@ public class ElectroStore {
     }
 
     public int[] sortedKeyboards(){
-        int[] newArray = keyboards;
-        Arrays.sort(newArray);
+        int[] newArray = sortArray(keyboards);
         return newArray;
     }
 
     public int[] sortedUSB(){
-        int[] newArray = usb;
-        Arrays.sort(newArray);
+        int[] newArray = sortArray(usb);
         return newArray;
     }
 

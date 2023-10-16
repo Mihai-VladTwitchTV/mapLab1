@@ -1,6 +1,16 @@
 public class Operations {
-    public double[] array = {1,2.5,4.2,4.3,9,1.1,13,100.3,7.4};
-    public int length = array.length;
+    public double[] array;
+    public int length ;
+    Operations(int size,double arr[]){
+        if(size < 1)
+            throw new RuntimeException("Cannot have 0 or less items");
+        for(double i : arr)
+            if(i < 0)
+                throw new RuntimeException("Cannot have negative numbers");
+        length = size;
+        array = arr;
+
+    }
     public double getMax(){
         double max = 0;
         for(int i = 0;i< length;i++){
@@ -11,7 +21,7 @@ public class Operations {
     }
 
     public double getMin(){
-        double min = 100000;
+        double min = Double.MAX_VALUE;
         for(int i = 0;i< length;i++){
             if(min > array[i])
                 min = array[i];

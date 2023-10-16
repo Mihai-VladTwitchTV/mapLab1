@@ -29,44 +29,10 @@ public class ElectroStoreTests {
         kauf.addUSB(5);
         kauf.addUSB(7);
         kauf.addUSB(9);
-        int minKeyb = 44444444;
-        for(int i = 0;i < kauf.keyboardAmmount-1;i++){
-            if(kauf.keyboards[i] < minKeyb)
-                minKeyb = kauf.keyboards[i];
-        }
-        int maxItem = -1;
-        for(int i = 0;i<kauf.usbAmmount;i++) {
-            if (maxItem < kauf.usb[i])
-                maxItem = kauf.usb[i];}
-        for(int j = 0;j<kauf.keyboardAmmount;j++) {
-            if(maxItem < kauf.keyboards[j])
-                maxItem = kauf.keyboards[j];
-        }
 
-        int maxExpensiveByBudget = -1;
-        for(int i=0;i < kauf.keyboardAmmount;i++){
-            if(maxExpensiveByBudget < kauf.keyboards[i] && kauf.keyboards[i] <= budget_)
-                maxExpensiveByBudget = kauf.keyboards[i];
-        }
-
-        int[] sortedKeybs = new int[5];
-        int[] sortedUSBS = new int[5];
-        sortedKeybs = kauf.sortedKeyboards();
-        sortedUSBS = kauf.sortedUSB();
-        int[] choices = new int[]{-1,-1};
-        for(int i = 0;i < kauf.keyboardAmmount-1;i++){
-            if(!(sortedKeybs[i] > budget_))
-                for(int j = 0;j < kauf.usbAmmount;j++){
-                    if(sortedUSBS[j]+sortedKeybs[i]<=budget_){
-                        choices[0] = sortedKeybs[i];
-                        choices[1] = sortedUSBS[j];
-                    }
-                }
-
-        }
-        assert(kauf.cheapestKeyboard() == minKeyb);
-        assert(kauf.expensiveByBudget(budget_) == maxExpensiveByBudget);
-        assert(kauf.budgetBuy(budget_) == choices);
+        assert(kauf.cheapestKeyboard() == 2);
+        assert(kauf.expensiveByBudget(budget_) == 10);
+        assert(kauf.budgetBuy(budget_) == new int[]{10,9});
         System.out.println("Electronic Store Tests Passed!");
 
 

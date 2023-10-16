@@ -1,18 +1,21 @@
+import org.junit.Test;
+
 public class OperationsTests {
-    public void runTest(){
-        Operations oper = new Operations();
-        double[] arr = oper.array;
-        double max = Double.MIN_VALUE;
-        double min = Double.MAX_VALUE;
-        double sum = 0.0;
-        for(int i = 0;i < arr.length;i++){
-            if(arr[i] > max)
-                max = arr[i];
-            if(arr[i] < min)
-                min = arr[i];
-            sum = sum + arr[i];
+    @Test
+    public void catchExceptions(){
+        try{
+            Operations opTest = new Operations(-1,new double[]{1});
+            Operations opTest1 = new Operations(1,new double[]{-1});
 
         }
+        catch(RuntimeException e){}
+    }
+    public void runTest(){
+        Operations oper = new Operations( 9,new double[]{1,2.5,4.2,4.3,9,1.1,13,100.3,7.4});
+        double[] arr = oper.array;
+        double max = 100.3;
+        double min = 1;
+        double sum = 142.8;
         ///asserts
         assert(min == oper.getMin());
         assert(max == oper.getMax());
