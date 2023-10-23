@@ -9,6 +9,7 @@ public class BigNumberTests {
     int[] prod= new int[]{5,2,4,1,9,1,5,5,4,0};
     int[] result= new int[]{0,8,7,3,6,5,2,5,9,0};
 
+
     @Test
     public void catchExceptions(){
         try{
